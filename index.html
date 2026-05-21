@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>体験セミナー｜ヘッドコンディショニング極 ＆ 経絡ストレッチ</title>
+  
+  <!-- Google Fonts: Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       【デザインシステム & ベース設定】
+       ========================================================================== */
+    :root {
+      /* カラーパレット */
+      --color-bg-base: #0a0e17;      /* 深い藍色（宇宙や神経の静けさ） */
+      --color-bg-dark: #05070c;      /* ほぼ黒の墨色（没入感） */
+      --color-bg-card: rgba(18, 26, 43, 0.6); /* ガラスモフィズム用の半透明カード */
+      
+      --color-text-main: #f5f6f8;    /* メインの白文字 */
+      --color-text-sub: #a0aec0;     /* サブの淡いグレー */
+      --color-text-muted: #718096;   /* 注釈などの暗めグレー */
+      
+      /* シャンパンゴールド（高級感・専門性のアクセント） */
+      --color-accent-gold: #c5a880;  
+      --color-accent-gold-light: #e5d3be;
+      --color-accent-gold-dark: #9e7f55;
+      --gradient-gold: linear-gradient(135deg, #c5a880 0%, #9e7f55 100%);
+      
+      /* アニメーション用変数 */
+      --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* 基本リセット & レスポンシブコンテナ設計 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      background-color: var(--color-bg-dark);
+    }
+
+    body {
+      font-family: var(--font-base);
+      background-color: var(--color-bg-base);
+      color: var(--color-text-main);
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      overflow-x: hidden;
+    }
+
+    /* スマホファーストの最大幅制限（PC表示時は中央に美しく収まるハイブランド風設計） */
+    .app-container {
+      max-width: 640px; /* スマホ特化型LPとして最適な幅 */
+      margin: 0 auto;
+      background-color: var(--color-bg-base);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 共通コンポーネント: セクション */
+    section {
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.08);
+    }
+
+    /* 背景グラフィック（神経・波紋の抽象デザイン） */
+    .wave-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(197, 168, 128, 0.05) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 80%, rgba(94, 129, 172, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .neural-line {
+      position: absolute;
+      width: 200%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197, 168, 128, 0.15), transparent);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .neural-line-1 { top: 25%; left: -50%; animation: pulseLine 8s infinite alternate ease-in-out; }
+    .neural-line-2 { top: 70%; left: -50%; animation: pulseLine 12s infinite alternate-reverse ease-in-out; }
+
+    @keyframes pulseLine {
+      0% { opacity: 0.3; transform: translate(-5%, -5%) rotate(-15deg); }
+      100% { opacity: 0.8; transform: translate(5%, 5%) rotate(-13deg); }
+    }
+
+    /* 共通コンポーネント: セクションタイトル */
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--color-accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--color-text-main);
+      letter-spacing: 0.12em;
+      line-height: 1.4;
+    }
+
+    .section-title span {
+      font-weight: 700;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background-color: var(--color-accent-gold);
+      margin: 16px auto 0;
+    }
+
+    /* 共通コンポーネント: CTAボタン */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px 24px;
+      font-family: var(--font-base);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: #05070c;
+      text-decoration: none;
+      background: var(--gradient-gold);
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(197, 168, 128, 0.25);
+      z-index: 2;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-25deg);
+      transition: 0.75s;
+    }
+
+    .btn-cta:hover::before {
+      left: 150%;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(197, 168, 128, 0.4);
+      background: linear-gradient(135deg, #e5d3be 0%, #c5a880 100%);
+    }
+
+    .btn-cta:active {
+      transform: translateY(0);
+    }
+
+    /* 画像のレスポンシブ共通設定 */
+    .img-fluid {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .image-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .image-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 40%, rgba(10, 14, 23, 0.8) 100%);
+      pointer-events: none;
+    }
+
+    /* スクロール時のフェードインアニメーション用クラス */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* ==========================================================================
+       【1. オープニングアニメーション】
+       ========================================================================== */
+    #opening-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-bg-dark);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .op-content {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .op-text {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      display: none;
+      color: var(--color-text-main);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+    }
+
+    #op-text-1 {
+      font-size: 1.4rem;
+      line-height: 2.2;
+    }
+
+    #op-text-2 {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    #op-text-2 span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--color-accent-gold);
+      margin-bottom: 12px;
+      letter-spacing: 0.25em;
+    }
+
+    /* アニメーション中のクラス */
+    .op-text.fade-in-active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .op-text.fade-out-active {
+      display: block;
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+
+
+    /* ==========================================================================
+       【2. Heroセクション】
+       ========================================================================== */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 24px 60px;
+      background: radial-gradient(circle at center, rgba(18, 26, 43, 0.8) 0%, var(--color-bg-dark) 100%);
+      position: relative;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.25;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--color-bg-dark) 0%, transparent 20%, transparent 80%, var(--color-bg-base) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--color-accent-gold);
+      color: var(--color-accent-gold);
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+      border-radius: 20px;
+      background: rgba(197, 168, 128, 0.05);
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px rgba(197, 168, 128, 0.1); }
+      100% { box-shadow: 0 0 15px rgba(197, 168, 128, 0.3); }
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-title span {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-text-sub);
+      margin-top: 10px;
+    }
+
+    .hero-catchphrase {
+      font-size: 1.35rem;
+      color: var(--color-text-main);
+      font-weight: 500;
+      margin: 48px 0 24px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 0;
+    }
+
+    .hero-subcopy {
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      line-height: 2;
+      text-align: justify;
+      text-align-last: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-subcopy span {
+      color: var(--color-accent-gold);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      margin-top: 24px;
+    }
+
+
+    /* ==========================================================================
+       【3. 開催概要セクション】
+       ========================================================================== */
+    .overview-section {
+      background-color: var(--color-bg-dark);
+    }
+
+    .overview-card {
+      background: var(--color-bg-card);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      border-radius: 8px;
+      padding: 32px 24px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .overview-list {
+      list-style: none;
+    }
+
+    .overview-item {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .overview-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .overview-label {
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .overview-value {
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+      font-weight: 400;
+    }
+
+    .price-discount {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .price-before {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+
+    .price-after {
+      font-size: 1.4rem;
+      color: var(--color-accent-gold-light);
+      font-weight: 700;
+    }
+
+    .price-badge {
+      font-size: 0.7rem;
+      background-color: var(--color-accent-gold-dark);
+      color: #05070c;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+
+    /* ==========================================================================
+       【4. このセミナーについて】
+       ========================================================================== */
+    .about-problem {
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 40px;
+      border-left: 3px solid var(--color-accent-gold);
+    }
+
+    .about-problem-title {
+      font-size: 1rem;
+      color: var(--color-accent-gold-light);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .about-problem-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+    }
+
+    .about-problem-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .about-problem-list li::before {
+      content: '•';
+      color: var(--color-accent-gold);
+      position: absolute;
+      left: 6px;
+      font-size: 1.2rem;
+      top: -2px;
+    }
+
+    .about-description {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--color-text-sub);
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .about-senses {
+      margin-top: 40px;
+    }
+
+    .sense-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 16px;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .sense-card:hover {
+      border-color: rgba(197, 168, 128, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .sense-num {
+      font-size: 0.8rem;
+      color: var(--color-accent-gold);
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+    }
+
+    .sense-title {
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+      font-weight: 400;
+    }
+
+
+    /* ==========================================================================
+       【5 & 6. メソッド詳細（ヘッド・経絡）】
+       ========================================================================== */
+    .method-section {
+      background-color: var(--color-bg-dark);
+    }
+
+    .method-badge {
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .method-concept {
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+      margin: 24px 0 16px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .method-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .method-tag {
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--color-text-sub);
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .method-list-title {
+      font-size: 0.95rem;
+      color: var(--color-accent-gold-light);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .method-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      margin-bottom: 40px;
+    }
+
+    .method-list li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .method-list li::before {
+      content: '■';
+      font-size: 0.5rem;
+      color: var(--color-accent-gold);
+      position: absolute;
+      left: 4px;
+      top: 7px;
+    }
+
+
+    /* ==========================================================================
+       【7. こんな方におすすめ】
+       ========================================================================== */
+    .target-list {
+      list-style: none;
+    }
+
+    .target-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      margin-bottom: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .target-item:hover {
+      border-color: rgba(197, 168, 128, 0.2);
+      background: rgba(197, 168, 128, 0.02);
+    }
+
+    .target-icon {
+      color: var(--color-accent-gold);
+      font-size: 1.1rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .target-text {
+      font-size: 0.95rem;
+      color: var(--color-text-sub);
+      font-weight: 400;
+    }
+
+
+    /* ==========================================================================
+       【8. 当日の流れ】
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 7px;
+      width: 1px;
+      height: calc(100% - 24px);
+      background: linear-gradient(to bottom, var(--color-accent-gold) 0%, rgba(255,255,255,0.05) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--color-bg-base);
+      border: 2px solid var(--color-accent-gold);
+      box-shadow: 0 0 8px rgba(197, 168, 128, 0.5);
+      z-index: 2;
+    }
+
+    .timeline-step {
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+      font-weight: 400;
+    }
+
+
+    /* ==========================================================================
+       【9. 参加して得られること】
+       ========================================================================== */
+    .benefits-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .benefit-card {
+      background: var(--color-bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--gradient-gold);
+    }
+
+    .benefit-title {
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .benefit-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+
+
+    /* ==========================================================================
+       【10. 講師紹介】
+       ========================================================================== */
+    .instructor-profile {
+      text-align: center;
+    }
+
+    .instructor-name-sub {
+      font-size: 0.85rem;
+      color: var(--color-accent-gold);
+      letter-spacing: 0.15em;
+      margin-top: 24px;
+      display: block;
+    }
+
+    .instructor-name {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      letter-spacing: 0.15em;
+    }
+
+    .instructor-bio {
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      line-height: 1.9;
+      text-align: justify;
+      margin-bottom: 24px;
+    }
+
+    .instructor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .instructor-tag {
+      font-size: 0.75rem;
+      background: rgba(197, 168, 128, 0.1);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      color: var(--color-accent-gold-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+
+    /* ==========================================================================
+       【11 & 13. 参加費 & CTA】
+       ========================================================================== */
+    .cta-box {
+      background: radial-gradient(circle at top, rgba(18, 26, 43, 0.9) 0%, var(--color-bg-dark) 100%);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      border-radius: 8px;
+      padding: 40px 24px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .cta-badge {
+      font-size: 0.8rem;
+      color: var(--color-accent-gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+      display: block;
+      font-weight: 500;
+    }
+
+    .cta-price-box {
+      margin: 24px 0 32px;
+    }
+
+    .cta-price-label {
+      font-size: 0.85rem;
+      color: var(--color-text-sub);
+    }
+
+    .cta-price-old {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      margin-right: 12px;
+    }
+
+    .cta-price-new {
+      font-size: 2.2rem;
+      color: var(--color-text-main);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-price-new span {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .cta-price-attention {
+      font-size: 0.8rem;
+      color: var(--color-accent-gold);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .cta-info-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      margin-bottom: 32px;
+      text-align: left;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 16px;
+    }
+
+    .cta-info-list li {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cta-info-list li span:first-child {
+      color: var(--color-accent-gold);
+    }
+
+
+    /* ==========================================================================
+       【12. 注意事項セクション】
+       ========================================================================== */
+    .notes-section {
+      background-color: var(--color-bg-dark);
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .notes-list {
+      list-style: none;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .notes-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .notes-list li::before {
+      content: '※';
+      position: absolute;
+      left: 0;
+    }
+
+
+    /* ==========================================================================
+       【フッター】
+       ========================================================================== */
+    footer {
+      background-color: #05070c;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       【1. オープニングアニメーション】
+       ========================================================================== -->
+  <div id="opening-screen">
+    <div class="op-content">
+      <div id="op-text-1" class="op-text">
+        身体は、<br>まだ変われる。
+      </div>
+      <div id="op-text-2" class="op-text">
+        <span>EXPERIENCE SEMINAR</span>
+        ヘッドコンディショニング極<br>＆<br>経絡ストレッチ<br>体験セミナー
+      </div>
+    </div>
+  </div>
+
+  <!-- メインコンテンツラッパー -->
+  <div class="app-container" id="main-content" style="opacity: 0; transition: opacity 1.5s ease;">
+
+    <!-- ==========================================================================
+         【2. Heroセクション】
+         ========================================================================== -->
+    <section class="hero-section">
+      <img src="images/hero_abstract.png" alt="Nervous system abstraction" class="hero-bg-image">
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <div class="hero-badge">体験セミナー開催決定</div>
+        
+        <h1 class="hero-title">
+          ヘッドコンディショニング極<br>＆<br>経絡ストレッチ
+          <span>体験セミナー</span>
+        </h1>
+        
+        <p class="hero-catchphrase">
+          頭と身体が変わると、<br>技術の見え方が変わる。
+        </p>
+        
+        <p class="hero-subcopy">
+          ただのヘッドスパでも、<br>ただのストレッチでもない。<br><br>
+          頭蓋・頸椎・神経・経絡・構造。<br><br>
+          身体を多角的に見るための<br>
+          <span>“次世代コンディショニング”</span><br>
+          を体験する2時間。
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#cta" class="btn-cta">次世代コンディショニングを体験する</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【3. 開催概要セクション】
+         ========================================================================== -->
+    <!-- ==========================================
+         【編集可能エリア：開催概要】
+         ※ 日程、価格、会場の情報を書き換えることができます。
+         ========================================== -->
+    <section id="overview" class="overview-section">
+      <div class="wave-bg"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Outline</span>
+        <h2 class="section-title">開催<span>概要</span></h2>
+      </div>
+
+      <div class="overview-card fade-in">
+        <ul class="overview-list">
+          <li class="overview-item">
+            <span class="overview-label">日時</span>
+            <span class="overview-value">6月14日（日） 13:00〜15:00</span>
+          </li>
+          <li class="overview-item">
+            <span class="overview-label">参加費</span>
+            <div class="price-discount">
+              <span class="price-before">¥10,000</span>
+              <span class="price-after">¥5,000</span>
+              <span class="price-badge">初回開催記念</span>
+            </div>
+          </li>
+          <li class="overview-item">
+            <span class="overview-label">会場</span>
+            <span class="overview-value">大阪・箕面周辺予定</span>
+          </li>
+          <li class="overview-item">
+            <span class="overview-label">定員</span>
+            <span class="overview-value">少人数制（要予約）</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【4. このセミナーについて】
+         ========================================================================== -->
+    <section id="about">
+      <div class="neural-line neural-line-1"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">About This Seminar</span>
+        <h2 class="section-title">このセミナーに<span>ついて</span></h2>
+      </div>
+
+      <div class="fade-in">
+        <div class="about-problem">
+          <h3 class="about-problem-title">このような問題を抱えていませんか？</h3>
+          <ul class="about-problem-list">
+            <li>日々の脳疲労と取れない頭の重さ</li>
+            <li>自律神経の乱れによる睡眠の質の低下</li>
+            <li>姿勢不良からくる慢性的な首肩の緊張</li>
+            <li>呼吸の浅さによる慢性的な酸欠感</li>
+            <li>感覚入力の低下による身体感覚の麻痺</li>
+          </ul>
+        </div>
+
+        <p class="about-description">
+          現代人が抱えるこれらの複雑な不調に対し、その場しのぎのリラクゼーションは限界を迎えています。本セミナーでは、頭蓋や経絡といった目に見えない領域から、神経伝達という微細な生体反応までを網羅した2つのアプローチを組み合わせ、身体の根本的な変化を導きます。
+        </p>
+
+        <div class="image-wrapper" style="margin-bottom: 40px;">
+          <img src="images/session_view.png" alt="Body conditioning session" class="img-fluid">
+        </div>
+
+        <p class="about-description">
+          「ヘッドコンディショニング極」と「経絡ストレッチ」を通じて、今までにない身体の連動性と、深い呼吸による解放感を体験していただきます。
+        </p>
+
+        <div class="about-senses">
+          <div class="sense-card">
+            <span class="sense-num">EXPERIENCE 01</span>
+            <h4 class="sense-title">「身体が変わる感覚」</h4>
+          </div>
+          <div class="sense-card">
+            <span class="sense-num">EXPERIENCE 02</span>
+            <h4 class="sense-title">「神経が整う感覚」</h4>
+          </div>
+          <div class="sense-card">
+            <span class="sense-num">EXPERIENCE 03</span>
+            <h4 class="sense-title">「呼吸が変わる感覚」</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【5. ヘッドコンディショニング極】
+         ========================================================================== -->
+    <section id="head-conditioning" class="method-section">
+      <div class="wave-bg"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Method 01</span>
+        <h2 class="section-title">ヘッドコンディショニング<span>極</span></h2>
+      </div>
+
+      <div class="fade-in">
+        <span class="method-badge">脳と神経を整えるアプローチ</span>
+        <p class="method-concept">
+          一般的な癒やし目的のリラクゼーションではなく、構造的な調整と神経生理学的な反応を引き出す次世代ヘッドコンディショニング。
+        </p>
+
+        <div class="method-tags">
+          <span class="method-tag">頭蓋</span>
+          <span class="method-tag">頸椎</span>
+          <span class="method-tag">神経</span>
+          <span class="method-tag">自律神経</span>
+          <span class="method-tag">感覚入力</span>
+        </div>
+
+        <h4 class="method-list-title">アプローチの期待効果</h4>
+        <ul class="method-list">
+          <li>頸椎の微小変位の調整による首肩の圧倒的な軽さ</li>
+          <li>感覚入力の正常化によるクリアな視界の確保</li>
+          <li>自律神経系のリセットに伴う深い睡眠の導入</li>
+          <li>呼吸運動を司る神経へのアプローチによる換気量の増加</li>
+          <li>全身の身体感覚マップの上書きによる動作の滑らかさ</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【6. 経絡ストレッチ】
+         ========================================================================== -->
+    <section id="keiraku-stretch">
+      <div class="neural-line neural-line-2"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Method 02</span>
+        <h2 class="section-title">経絡<span>ストレッチ</span></h2>
+      </div>
+
+      <div class="fade-in">
+        <span class="method-badge">流れと連動を生むアプローチ</span>
+        <p class="method-concept">
+          ただ単にターゲット筋肉を単体で伸ばすのではなく、東洋的な経絡の流れと、西洋的な運動連鎖・筋膜ラインを融合させたストレッチ。
+        </p>
+
+        <div class="method-tags">
+          <span class="method-tag">関節位置</span>
+          <span class="method-tag">筋膜ライン</span>
+          <span class="method-tag">経絡</span>
+          <span class="method-tag">神経伝達</span>
+          <span class="method-tag">身体連動</span>
+        </div>
+
+        <h4 class="method-list-title">アプローチの期待効果</h4>
+        <ul class="method-list">
+          <li>関節を適正なポジションに戻すことによる詰まり感の解消</li>
+          <li>筋膜のテンセグリティ（張力バランス）の回復</li>
+          <li>経絡に沿ったエネルギーラインの活性化</li>
+          <li>全身がワンユニットとして動く「動ける身体」の獲得</li>
+          <li>一時的ではない、持続性のある動作の柔軟性</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【7. こんな方におすすめ】
+         ========================================================================== -->
+    <section id="target" class="method-section">
+      <div class="wave-bg"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Target</span>
+        <h2 class="section-title">このような方に<span>おすすめ</span></h2>
+      </div>
+
+      <div class="target-list fade-in">
+        <div class="target-item">
+          <span class="target-icon">✦</span>
+          <div class="target-text">現在持っている技術の枠組みを超えたいトレーナー</div>
+        </div>
+        <div class="target-item">
+          <span class="target-icon">✦</span>
+          <div class="target-text">手技のみでの変化に限界を感じている整体師・施術家</div>
+        </div>
+        <div class="target-item">
+          <span class="target-icon">✦</span>
+          <div class="target-text">解剖学・神経学的な根拠を現場に活かしたいセラピスト</div>
+        </div>
+        <div class="target-item">
+          <span class="target-icon">✦</span>
+          <div class="target-text">身体の多角的な見方（西洋・東洋の融合）を深めたい方</div>
+        </div>
+        <div class="target-item">
+          <span class="target-icon">✦</span>
+          <div class="target-text">再現性が高く結果の出るヘッド技術・ストレッチ技術を模索中の方</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【8. 当日の流れ】
+         ========================================================================== -->
+    <section id="schedule">
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Schedule</span>
+        <h2 class="section-title">当日の<span>流れ</span></h2>
+      </div>
+
+      <div class="timeline fade-in">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 01</span>
+          <h3 class="timeline-title">身体と神経の考え方（概論）</h3>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 02</span>
+          <h3 class="timeline-title">ヘッドコンディショニング極の解説</h3>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 03</span>
+          <h3 class="timeline-title">経絡ストレッチの解説</h3>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 04</span>
+          <h3 class="timeline-title">講師による技術デモンストレーション</h3>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 05</span>
+          <h3 class="timeline-title">ペアワークによる体験と体感</h3>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-step">STEP 06</span>
+          <h3 class="timeline-title">質疑応答・まとめ</h3>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【9. 参加して得られること】
+         ========================================================================== -->
+    <section id="benefits" class="method-section">
+      <div class="wave-bg"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">What You Get</span>
+        <h2 class="section-title">参加して<span>得られること</span></h2>
+      </div>
+
+      <div class="benefits-grid fade-in">
+        <div class="benefit-card">
+          <h3 class="benefit-title">多角的アプローチによる身体変化の視点</h3>
+          <p class="benefit-desc">ただ局所を見るのではなく、頭蓋、頸椎、経絡、神経伝達など全体構造を俯瞰して変化を出す新しい治療眼が手に入ります。</p>
+        </div>
+        <div class="benefit-card">
+          <h3 class="benefit-title">頭蓋・頸椎・神経へのアプローチ概論</h3>
+          <p class="benefit-desc">自律神経を刺激し、脳疲労を解消するための頭部および頸椎構造の整理と感覚入力の重要性を理解できます。</p>
+        </div>
+        <div class="benefit-card">
+          <h3 class="benefit-title">経絡ストレッチの基本概念の習得</h3>
+          <p class="benefit-desc">筋肉を伸長するだけの既存のストレッチとは一線を画す、経絡エネルギーと身体連動を考慮した技術設計を学びます。</p>
+        </div>
+        <div class="benefit-card">
+          <h3 class="benefit-title">呼吸および感覚入力に介入するアプローチ</h3>
+          <p class="benefit-desc">慢性不調の根源である「呼吸の浅さ」や「感覚の麻痺」をリセットし、可動域や出力の即時変化を導く方法を体得します。</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【10. 講師紹介】
+         ========================================================================== -->
+    <section id="instructor">
+      <div class="neural-line neural-line-1"></div>
+      
+      <div class="section-header fade-in">
+        <span class="section-subtitle">Instructor</span>
+        <h2 class="section-title">講師<span>紹介</span></h2>
+      </div>
+
+      <div class="instructor-profile fade-in">
+        <div class="image-wrapper" style="max-width: 280px; margin: 0 auto 32px; border-radius: 50%; border: 2px solid var(--color-accent-gold);">
+          <img src="images/instructor_portrait.png" alt="原口 慶篤" class="img-fluid">
+        </div>
+        
+        <span class="instructor-name-sub">パーソナルトレーナー／整体師／コンディショニング講師</span>
+        <h3 class="instructor-name">原口 慶篤</h3>
+        
+        <p class="instructor-bio">
+          解剖学、運動学、神経学の知見に基づきながら、カイロプラクティック、オステオパシー、経絡アプローチなどを高度に融合させた独自のコンディショニング理論を確立。<br><br>
+          “結果が出る身体づくり”をテーマに掲げ、現場で再現性が極めて高い独自の調整・指導法を追求。その的確な技術指導と身体に対する鋭い見立てから、プロのトレーナーや治療家など全国各地の施術家を対象とした技術指導にも奔走している。
+        </p>
+
+        <div class="instructor-tags">
+          <span class="instructor-tag">解剖学</span>
+          <span class="instructor-tag">神経学</span>
+          <span class="instructor-tag">経絡アプローチ</span>
+          <span class="instructor-tag">カイロプラクティック</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【11 & 13. 参加費 & CTA】
+         ========================================================================== -->
+    <!-- ==========================================
+         【編集可能エリア：価格・日程・URL】
+         ※ 変更が必要な場合は、以下の各箇所を書き換えてください。
+         ========================================== -->
+    <section id="cta" class="method-section">
+      <div class="wave-bg"></div>
+      
+      <div class="cta-box fade-in">
+        <span class="cta-badge">SPECIAL SEMINAR</span>
+        <h3 class="section-title" style="margin-bottom: 24px;">体験セミナーに<span>申し込む</span></h3>
+        
+        <p class="cta-price-attention">初回開催を記念した限定特別価格</p>
+        
+        <div class="cta-price-box">
+          <span class="cta-price-old">通常 ¥10,000</span>
+          <span class="cta-price-new">¥5,000<span>（税込）</span></span>
+        </div>
+        
+        <ul class="cta-info-list">
+          <li><span>日程</span><span>6月14日（日）13:00〜15:00</span></li>
+          <li><span>定員</span><span>少人数限定</span></li>
+          <li><span>会場</span><span>大阪・箕面周辺（追って詳細連絡）</span></li>
+        </ul>
+        
+        <!-- お申し込みボタン（お申し込みURLは下部のJavaScriptにて一元管理できます） -->
+        <a href="#" class="btn-cta cta-link-target">6月14日の体験会に参加する</a>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         【12. 注意事項セクション】
+         ========================================================================== -->
+    <section class="notes-section">
+      <div class="fade-in">
+        <ul class="notes-list">
+          <li>本セミナーは医療行為ではありません。</li>
+          <li>効果には個人差があり、特定の効果を保証するものではありません。</li>
+          <li>実技体験がございますので、動きやすい服装でお越しいただくか、お着替えをご持参ください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+      <p>&copy; 2026 NEXT CONDITIONING. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================================================
+       【インタラクション制御（JavaScript）】
+       ========================================================================== -->
+  <script>
+    // ==========================================
+    // 【編集可能エリア：お申し込み先URL】
+    // ※ フォームや外部お申し込みサイトのURLを設定してください。
+    // ==========================================
+    const ENROLLMENT_URL = "#"; 
+
+    // URLの自動反映
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctaLinks = document.querySelectorAll(".cta-link-target");
+      ctaLinks.forEach(link => {
+        link.setAttribute("href", ENROLLMENT_URL);
+      });
+    });
+
+    // 1. オープニングアニメーション制御
+    window.addEventListener("load", () => {
+      const opScreen = document.getElementById("opening-screen");
+      const opText1 = document.getElementById("op-text-1");
+      const opText2 = document.getElementById("op-text-2");
+      const mainContent = document.getElementById("main-content");
+
+      // STEP A: テキスト1 フェードイン
+      setTimeout(() => {
+        opText1.classList.add("fade-in-active");
+      }, 500);
+
+      // STEP B: テキスト1 フェードアウト
+      setTimeout(() => {
+        opText1.classList.remove("fade-in-active");
+        opText1.classList.add("fade-out-active");
+      }, 2500);
+
+      // STEP C: テキスト2 フェードイン
+      setTimeout(() => {
+        opText1.style.display = "none";
+        opText2.classList.add("fade-in-active");
+      }, 3800);
+
+      // STEP D: テキスト2 フェードアウト
+      setTimeout(() => {
+        opText2.classList.remove("fade-in-active");
+        opText2.classList.add("fade-out-active");
+      }, 6000);
+
+      // STEP E: オープニング画面全体のフェードアウト ＆ メインコンテンツのフェードイン
+      setTimeout(() => {
+        opScreen.style.opacity = "0";
+        mainContent.style.opacity = "1";
+        
+        // アニメーション完了後にオープニング要素をDOMから物理的になくし、クリック操作等を邪魔しないようにする
+        setTimeout(() => {
+          opScreen.style.display = "none";
+        }, 1200);
+      }, 7300);
+    });
+
+    // 2. スクロール監視によるフェードインアニメーション (Intersection Observer)
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // 一度フェードインしたら監視解除
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeElements = document.querySelectorAll(".fade-in");
+      fadeElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
