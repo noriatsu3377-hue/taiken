@@ -128,7 +128,7 @@
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: clamp(1.3rem, 5.5vw, 1.8rem);
       font-weight: 300;
       color: var(--color-text-main);
       letter-spacing: 0.12em;
@@ -364,7 +364,7 @@
     }
 
     .hero-title {
-      font-size: 2.2rem;
+      font-size: clamp(1.4rem, 6vw, 2.2rem);
       font-weight: 300;
       line-height: 1.4;
       margin-bottom: 24px;
@@ -373,17 +373,17 @@
 
     .hero-title span {
       display: block;
-      font-size: 1.4rem;
+      font-size: clamp(1.05rem, 4.5vw, 1.4rem);
       font-weight: 400;
       color: var(--color-text-sub);
       margin-top: 10px;
     }
 
     .hero-catchphrase {
-      font-size: 1.35rem;
+      font-size: clamp(1.1rem, 4.5vw, 1.35rem);
       color: var(--color-text-main);
       font-weight: 500;
-      margin: 48px 0 24px;
+      margin: clamp(32px, 8vw, 48px) 0 24px;
       line-height: 1.8;
       border-top: 1px solid rgba(255,255,255,0.1);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -790,7 +790,7 @@
     }
 
     .instructor-name {
-      font-size: 1.6rem;
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
       font-weight: 400;
       margin-bottom: 24px;
       letter-spacing: 0.15em;
@@ -859,7 +859,7 @@
     }
 
     .cta-price-new {
-      font-size: 2.2rem;
+      font-size: clamp(1.6rem, 7vw, 2.2rem);
       color: var(--color-text-main);
       font-weight: 700;
       letter-spacing: 0.05em;
@@ -939,6 +939,29 @@
       letter-spacing: 0.1em;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
+
+    /* モバイル・レスポンシブ調整 */
+    @media (max-width: 480px) {
+      section {
+        padding: 50px 16px;
+      }
+      .hero-section {
+        padding: 80px 16px 40px;
+      }
+      .about-problem {
+        padding: 16px;
+      }
+      .overview-card {
+        padding: 24px 16px;
+      }
+      .cta-box {
+        padding: 32px 16px;
+      }
+      .btn-cta {
+        padding: 16px 20px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -949,7 +972,7 @@
   <div id="opening-screen">
     <div class="op-content">
       <div id="op-text-1" class="op-text">
-        身体は、<br>まだ変われる。
+        身体は<br>まだ変われる。
       </div>
       <div id="op-text-2" class="op-text">
         <span>EXPERIENCE SEMINAR</span>
@@ -977,11 +1000,11 @@
         </h1>
         
         <p class="hero-catchphrase">
-          頭と身体が変わると、<br>技術の見え方が変わる。
+          頭と身体が変わると<br>技術の見え方が変わる。
         </p>
         
         <p class="hero-subcopy">
-          ただのヘッドスパでも、<br>ただのストレッチでもない。<br><br>
+          ただのヘッドスパでも<br>ただのストレッチでもない。<br><br>
           頭蓋・頸椎・神経・経絡・構造。<br><br>
           身体を多角的に見るための<br>
           <span>“次世代コンディショニング”</span><br>
@@ -1289,15 +1312,15 @@
 
       <div class="instructor-profile fade-in">
         <div class="image-wrapper" style="max-width: 280px; margin: 0 auto 32px; border-radius: 50%; border: 2px solid var(--color-accent-gold);">
-          <img src="images/instructor_portrait.png" alt="原口 慶篤" class="img-fluid">
+          <img src="images/instructor_portrait.jpg" alt="原口 慶篤" class="img-fluid">
         </div>
         
         <span class="instructor-name-sub">パーソナルトレーナー／整体師／コンディショニング講師</span>
         <h3 class="instructor-name">原口 慶篤</h3>
         
         <p class="instructor-bio">
-          解剖学、運動学、神経学の知見に基づきながら、カイロプラクティック、オステオパシー、経絡アプローチなどを高度に融合させた独自のコンディショニング理論を確立。<br><br>
-          “結果が出る身体づくり”をテーマに掲げ、現場で再現性が極めて高い独自の調整・指導法を追求。その的確な技術指導と身体に対する鋭い見立てから、プロのトレーナーや治療家など全国各地の施術家を対象とした技術指導にも奔走している。
+          解剖学・運動学・神経学の知見に基づき、カイロプラクティックやオステオパシー、経絡アプローチなどを高度に融合させた独自のコンディショニング理論を確立。<br><br>
+          “結果が出る身体づくり”をテーマに掲げ、現場で再現性が極めて高い独自の調整・指導法を追求。その的確な技術指導と身体に対する鋭い見立てにより、全国のプロトレーナーや治療家、施術家への技術指導にも奔走している。
         </p>
 
         <div class="instructor-tags">
